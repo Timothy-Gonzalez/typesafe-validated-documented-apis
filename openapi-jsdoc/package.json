@@ -1,0 +1,36 @@
+{
+    "name": "test-typesafety",
+    "version": "1.0.0",
+    "main": "index.js",
+    "author": "Timothy-Gonzalez <105177619+Timothy-Gonzalez@users.noreply.github.com>",
+    "license": "MIT",
+    "type": "commonjs",
+    "scripts": {
+        "format:check": "yarn run prettier --check '**/*.{ts,js,cjs,json}'",
+        "format": "yarn run prettier --write '**/*.{ts,js,cjs,json}'",
+        "lint:check": "tsc --noEmit && yarn run eslint src --ext .js,.jsx,.ts,.tsx",
+        "lint": "tsc --noEmit && yarn run eslint src --ext .js,.jsx,.ts,.tsx --fix",
+        "build": "tsc",
+        "verify": "yarn lint:check && yarn format:check",
+        "start": "node out/app.js",
+        "serve": "tsc-watch --onSuccess \"node out/app.js\""
+    },
+    "dependencies": {
+        "@asteasolutions/zod-to-openapi": "^7.1.1",
+        "@types/express": "^4.17.21",
+        "@types/node": "^22.5.0",
+        "@types/swagger-jsdoc": "^6.0.4",
+        "@types/swagger-ui-express": "^4.1.6",
+        "eslint": "^9.9.1",
+        "express": "^4.19.2",
+        "prettier": "^3.3.3",
+        "swagger-jsdoc": "^6.2.8",
+        "swagger-ui-express": "^5.0.1",
+        "tsc": "^2.0.4",
+        "tsc-watch": "^6.2.0",
+        "typescript": "^5.5.4",
+        "yaml": "^2.5.0",
+        "zod": "^3.23.8",
+        "zod-express-middleware": "^1.4.0"
+    }
+}
