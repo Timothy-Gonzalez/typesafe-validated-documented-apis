@@ -1,0 +1,34 @@
+{
+    "name": "test-typesafety",
+    "version": "1.0.0",
+    "main": "index.js",
+    "author": "Timothy-Gonzalez <105177619+Timothy-Gonzalez@users.noreply.github.com>",
+    "license": "MIT",
+    "type": "commonjs",
+    "scripts": {
+        "format:check": "yarn run prettier --check '**/*.{ts,js,cjs,json}'",
+        "format": "yarn run prettier --write '**/*.{ts,js,cjs,json}'",
+        "lint:check": "tsc --noEmit && yarn run eslint src --ext .js,.jsx,.ts,.tsx",
+        "lint": "tsc --noEmit && yarn run eslint src --ext .js,.jsx,.ts,.tsx --fix",
+        "build": "tsc",
+        "verify": "yarn lint:check && yarn format:check",
+        "start": "node out/app.js",
+        "serve": "tsc-watch --onSuccess \"node out/app.js\""
+    },
+    "dependencies": {
+        "@fastify/swagger": "^8.15.0",
+        "@fastify/swagger-ui": "^4.1.0",
+        "@types/node": "^22.5.0",
+        "eslint": "^9.9.1",
+        "fastify": "^4.28.1",
+        "fastify-plugin": "^4.5.1",
+        "fastify-zod-openapi": "^1.2.1",
+        "prettier": "^3.3.3",
+        "tsc": "^2.0.4",
+        "tsc-watch": "^6.2.0",
+        "typescript": "^5.5.4",
+        "yaml": "^2.5.0",
+        "zod": "^3.23.8",
+        "zod-openapi": "^2.19.0"
+    }
+}
