@@ -1,0 +1,36 @@
+// GENERATED FROM https://gist.github.com/mtimbs/0eaf27df08cff8f4ca4303de60bf617b
+{
+    "compilerOptions": {
+        // Project options
+        "lib": ["ESNext"],
+        "outDir": "out",
+        "removeComments": false,
+        "target": "ESNext",
+        "module": "CommonJS",
+        // Module resolution
+        "esModuleInterop": true,
+        "moduleResolution": "Node",
+        "resolveJsonModule": true,
+        // Compilation
+        "experimentalDecorators": true,
+        "emitDecoratorMetadata": true,
+        "skipLibCheck": true,
+        "isolatedModules": true,
+        // Source Map
+        "sourceMap": true,
+        "sourceRoot": "./src",
+        // Strict Checks
+        "alwaysStrict": true,
+        "allowUnreachableCode": false,
+        "noImplicitAny": true,
+        "strictNullChecks": true,
+        "strictFunctionTypes": true,
+        // Linter Checks
+        "noImplicitReturns": true,
+        "noUncheckedIndexedAccess": true,
+        "noUnusedLocals": true,
+        "noUnusedParameters": true
+    },
+    "include": ["src/**/*.ts", "src/openapi.yaml"],
+    "exclude": ["node_modules/**"]
+}
