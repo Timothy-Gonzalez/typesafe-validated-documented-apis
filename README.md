@@ -196,6 +196,46 @@ The behind the scenes is a bit more ugly.
 This requires hooking into express' internal stack to pull out the path with some cursed regex parsing.
 But, it works.
 
+## Better Express Middleware
+
+[`better-express-middleware`](/better-express-middleware/)
+
+We can make the middleware better by not relying on a hack, and just providing the method and path directly:
+```ts
+usersRouter.get(
+    "/:id",
+    specification({
+        method: "get",
+        path: "/user/{id}/",
+        summary: "Get a user by id",
+        parameters: z.object({
+            id: UserIdSchema,
+        }),
+        responses: {
+            200: {
+                description: "Successfully got user",
+                schema: UserSchema,
+            },
+            400: {
+                description: "User not found",
+                schema: UserNotFoundErrorSchema,
+            },
+        },
+    }),
+    (req, res) => {
+        const user = getUser(req.params.id);
+
+        if (!user) {
+            res.status(404).json({ error: "NotFound", message: "UserNotFound" });
+        }
+
+        res.status(200).json(user);
+    },
+);
+```
+
+This also has improved typing for the json response.
+
 ## Fastify
 
 [`fastify`](/fastify/)
